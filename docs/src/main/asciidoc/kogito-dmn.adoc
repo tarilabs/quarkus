@@ -8,10 +8,10 @@ https://github.com/quarkusio/quarkus/tree/main/docs/src/main/asciidoc
 include::./attributes.adoc[]
 
 This guide demonstrates how your Quarkus application can use Kogito to add business automation
-to power it up with DMN decision support.
+and power it up with DMN decision support.
 
 Kogito is a next generation business automation toolkit that originates from well known Open Source projects
-Drools (for business rules) and jBPM (for business processes). Kogito aims at providing another approach
+Drools (for business rules) and jBPM (for business processes). Kogito aims at providing a newer approach
 to business automation where the main message is to expose your business knowledge (processes, rules, decisions, predictions)
 in a domain specific way.
 
@@ -56,8 +56,7 @@ This endpoint will be automatically generated based on the defined DMN model.
 
 === Decision rules as a DMN model
 
-A DMN model is an open standard for visual and semantic execution of declarative logic; DMN allows you to externalise decision logic into reusable pieces that can be easily used in declarative way. There are multiple ways of writing rules other than DMN, like: decision tables,
-decision trees, rules, etc.
+A DMN model is an open standard for visual and semantic execution of declarative logic; DMN allows you to externalise decision logic into reusable pieces that can be easily used in declarative way. There are multiple ways of writing rules other than DMN, like: decision tables, decision trees, rules, etc.
 
 For this example we focus on using the https://drools.org/learn/dmn.html[DMN (Decision Model and Notation)] open standard to describe the decision rules.
 
@@ -150,6 +149,8 @@ To author the DMN model yourself, just follow these steps:
 ** create the relevant rules (rows) entries as per the above screenshot.
 * save the file
 
+For more information about DMN, you can reference the Kogito documentation at the links below.
+
 == Running and Using the Application
 
 === Running in Developer Mode
@@ -207,15 +208,49 @@ payload the expected inputs:
 curl -X POST 'http://localhost:8080/pricing' \
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' \
--d '{ "Age" : 47, "Previous incidents?": false}'
+-d '{ "Age": 47, "Previous incidents?": false }'
 ----
 
-In the response, the `Base price` should be quoted for a `500` total amount, and that should also be visible in the response payload.
+In the response, the `Base price` will be quoted -accordingly to the defined DMN model- for a total amount of `500`; this is visible in the response payload:
 
 [source,JSON]
 ----
 {"Previous incidents?":false,"Age":47,"Base price":500}
 ----
+
+== Using Test Scenario tool
+
+Kogito allows to define visually test scenarios, and execute them as JUnit tests as part of the normal build of the Quarkus application.
+
+To be able to use Test Scenario assets in your application, an additional dependency is required:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>kogito-scenario-simulation</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+You can now create a `KogitoScenarioJunitActivatorTest.java` class file in the `src/test/java/testscenario` directory:
+[source,java]
+----
+package testscenario;
+@org.junit.runner.RunWith(org.kogito.scenariosimulation.runner.KogitoJunitActivator.class)
+public class KogitoScenarioJunitActivatorTest {
+}
+----
+
+This activator class is a custom JUnit runner that enables the execution of test scenario files in your application.
+
+You can now create a `PricingTest.scesim` file in the `src/test/resources` directory:
+
+image:kogito-DMN-guide-screenshot-scesim.png[alt=DMN Test scenario]
+
+The test scenarios will be run as part of the JUnit test suite.
+
+For more information about the Test Scenario tool, you can reference the Kogito documentation at the links below.
 
 == Where to go from here
 
