@@ -159,7 +159,7 @@ To run the microservice in dev mode, use `./mvnw clean quarkus:dev`.
 
 === Running in JVM Mode
 
-When you're done playing with "dev-mode" you can run it as a standard Java application.
+When you're done playing with dev mode, you can run it as a standard Java application.
 
 First compile it:
 
