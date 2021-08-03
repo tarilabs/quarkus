@@ -155,7 +155,7 @@ For more information about DMN, you can reference the Kogito documentation at th
 
 === Running in Developer Mode
 
-To run the microservice in dev mode, use `./mvnw clean compile quarkus:dev`.
+To run the microservice in dev mode, use `./mvnw clean quarkus:dev`.
 
 === Running in JVM Mode
 
