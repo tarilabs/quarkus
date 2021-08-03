@@ -118,7 +118,7 @@ This will add the following to your `pom.xml`:
 == Authoring the DMN model
 
 We will author a DMN model that will provide a base price quotation based on some criteria.
-Create a new file `pricing.dmn` inside `src/main/resources/` directory of the generated project.
+Create a new file `pricing.dmn` inside the `src/main/resources/` directory of the generated project.
 
 This model should consist of:
 
