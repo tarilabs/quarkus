@@ -133,7 +133,7 @@ image:kogito-DMN-guide-screenshot-DRG.png[alt=DMN model definition]
 To get started quickly you may copy the DMN model definition file from the
 {quickstarts-tree-url}/kogito-quickstart/src/main/resources/pricing.dmn[quickstart]
 
-The decision logic for the `Base price` Decision node, shall be a DMN Decision Table with the following entries:
+The decision logic for the `Base price` Decision node shall be a DMN Decision Table with the following entries:
 
 image:kogito-DMN-guide-screenshot-DT.png[alt=DMN Decision Table definition]
 
