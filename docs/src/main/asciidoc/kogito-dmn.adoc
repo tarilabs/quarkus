@@ -88,7 +88,7 @@ that comes with all needed dependencies and configuration to equip your applicat
 with business automation.
 
 The `kogito-quarkus-decisions` is a specialized extension of the Kogito project focusing only on DMN support; if you want to 
-make use of the full capabilities offered by the Kogito platform, you can reference to the generic Kogito extension of Quarkus.
+make use of the full capabilities offered by the Kogito platform, you can reference the generic Kogito extension of Quarkus.
 
 If you already have your Quarkus project configured, you can add the `kogito-quarkus-decisions` extension
 to your project by running the following command in your project base directory:
