@@ -126,7 +126,7 @@ This model should consist of:
 * `Previous incidents?` (InputData element, of type `boolean`)
 * `Base price` (Decision element, of type `number`)
 
-And the Decision Requirement Graph (DRG) should look like
+And the Decision Requirement Graph (DRG) should look like:
 
 image:kogito-DMN-guide-screenshot-DRG.png[alt=DMN model definition]
 
